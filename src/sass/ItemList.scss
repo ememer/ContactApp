@@ -1,0 +1,43 @@
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 5px;
+  margin: 0px 0px 10px 0px;
+  box-shadow: 2px 1px 3px 1px rgba($color: #000000, $alpha: 0.2);
+  padding: 10px 0px 0px 0px;
+}
+
+.checkbox {
+  height: 15px;
+  color: red;
+}
+
+.person {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.email {
+  font-size: 0.6rem;
+  font-weight: 400;
+}
+
+.personal-data {
+  display: flex;
+  justify-content: center;
+}
+
+.checkbox-content {
+  background: #fff;
+  border-radius: 5px;
+  margin: 0px 0px 10px 0px;
+  padding: 20px 0px 0px 0px;
+  text-align: center;
+}

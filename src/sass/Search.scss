@@ -1,0 +1,13 @@
+.search {
+  height: 7vh;
+  margin: 2px;
+}
+
+.text-input {
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  &:focus {
+    outline: none;
+  }
+}

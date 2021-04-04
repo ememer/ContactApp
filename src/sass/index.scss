@@ -1,0 +1,13 @@
+@import "./config/grid";
+@import "./config/reset";
+@import "./NavBarr.scss";
+@import "./Search.scss";
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 10px;
+  background: rgb(245, 245, 245);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
