@@ -10,4 +10,11 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  padding: 0px 5px;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    padding: 0px 10px;
+  }
 }

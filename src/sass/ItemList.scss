@@ -16,7 +16,7 @@
 
 .checkbox {
   height: 15px;
-  color: red;
+  cursor: pointer;
 }
 
 .person {
@@ -40,4 +40,12 @@
   margin: 0px 0px 10px 0px;
   padding: 20px 0px 0px 0px;
   text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .list {
+    text-align: center;
+    justify-content: space-between;
+    padding: 20px 20px 5px 20px;
+  }
 }
