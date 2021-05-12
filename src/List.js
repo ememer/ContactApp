@@ -1,15 +1,12 @@
 import { useState } from "react";
-import ItemList from "./ItemList";
+import ListItem from "./ListItem";
 
 const List = (props) => {
-  const [checkedContact, setCheckedContact] = useState("");
+  const [checkedContact, setCheckedContact] = useState([]);
 
   function getCheckedContact(id, check) {
     if (check) {
-      setCheckedContact((prevState) => [
-        ...prevState,
-        { id: id, check: check },
-      ]);
+      setCheckedContact((prevState) => [...prevState, id]);
     } else if (!check) {
       setCheckedContact((prevState) =>
         prevState.filter((person) => person.id !== id && person.check !== check)
@@ -20,9 +17,9 @@ const List = (props) => {
   return (
     <ul className="container">
       {props.response.map((person) => (
-        <ItemList
-          isContactChecked={checkedContact}
-          get={getCheckedContact}
+        <ListItem
+          isContactChecked={checkedContact.includes(person.id)}
+          getCheckedBox={getCheckedContact}
           key={person.id}
           person={person}
         />
