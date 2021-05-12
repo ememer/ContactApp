@@ -9,7 +9,7 @@ const List = (props) => {
       setCheckedContact((prevState) => [...prevState, id]);
     } else if (!check) {
       setCheckedContact((prevState) =>
-        prevState.filter((person) => person.id !== id && person.check !== check)
+        prevState.filter((person) => person !== id)
       );
     }
   }
