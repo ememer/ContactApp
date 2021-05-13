@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import "./sass/ListItem.scss";
 
 const ListItem = (props) => {
-  const [checkBoxStatus, setCheckBoxStatus] = useState(false);
+  const [checkBoxStatus, setCheckBoxStatus] = useState(props.isContactChecked);
   const [propsData, setPropsData] = useState({
     id: "",
     firstName: "",
@@ -14,6 +14,8 @@ const ListItem = (props) => {
   });
 
   useEffect(() => {
+    // Promise waiting for data from API and fill user information to person object
+
     const personPromise = new Promise((resolve, reject) => {
       if (props.person) {
         resolve(props.person);
@@ -21,6 +23,8 @@ const ListItem = (props) => {
         reject(`Data can't loaded`);
       }
     });
+
+    // If format of data is correct filling state object with values
 
     personPromise.then((res) => {
       setPropsData({
@@ -33,6 +37,9 @@ const ListItem = (props) => {
       });
     });
   }, [props.person, checkBoxStatus, props.isContactChecked, propsData.id]);
+
+  // Handle toggling checbox and run getCheckedContact func via props
+  // If checbox is set to false, give target id and set flag on true value or in case is true, give target id  and set flag on false value to control adding and removing toggled value in array at parent component (ListItem)
 
   const handleToggleCheck = (e) => {
     setCheckBoxStatus((prevState) => !prevState);
@@ -50,7 +57,10 @@ const ListItem = (props) => {
           <Avatar
             alt={`${propsData.firstName} ${propsData.lastName}`}
             src={propsData.picture}
-          ></Avatar>
+          >{`${propsData.firstName.slice(0, 1)}${propsData.lastName.slice(
+            0,
+            1
+          )}`}</Avatar>
         </div>
         <div className="col-9">
           <div className="row">
@@ -74,7 +84,7 @@ const ListItem = (props) => {
         <div className="row checkbox-content">
           <div className="col-12">
             <div className="row personal-data">
-              <div className="col-11">Tutaj jeszcze nic nie ma</div>
+              <div className="col-11">Nothing to see there 🤷‍♂️</div>
             </div>
           </div>
         </div>

@@ -4,15 +4,19 @@ import ListItem from "./ListItem";
 const List = (props) => {
   const [checkedContact, setCheckedContact] = useState([]);
 
-  function getCheckedContact(id, check) {
+  // Func to taking choosed contact and fill array with id
+
+  function getCheckedContact(checkedPersonId, check) {
     if (check) {
-      setCheckedContact((prevState) => [...prevState, id]);
+      setCheckedContact((prevState) => [...prevState, checkedPersonId]);
     } else if (!check) {
       setCheckedContact((prevState) =>
-        prevState.filter((person) => person !== id)
+        prevState.filter((personId) => personId !== checkedPersonId)
       );
     }
   }
+
+  //  isContactChecked checking for includes id in array every time when component is re-render
 
   return (
     <ul className="container">

@@ -19,18 +19,19 @@ function App() {
         return response.json();
       })
       .then((response) => {
-        setResponse(
-          response.data.map((apiData) => {
-            return { ...apiData, check: false };
-          })
-        );
+        setResponse(response.data.map((apiData) => apiData));
       })
       .catch((err) => {
         console.error(err);
       });
   }, []);
 
-  const filterContacts = (userInput) => {
+  //  FilteringContacts filtering contact in real-time from api by to options:
+  // - By person FirstName
+  //- By person lastName
+  // or
+  // - By all cases together
+  const filteringContacts = (userInput) => {
     return response.filter(
       (person) =>
         person.firstName.toLowerCase().includes(userInput.toLowerCase()) ||
@@ -42,7 +43,7 @@ function App() {
     <div className="App">
       <NavBarr />
       <Search searchValue={setSearchValue} />
-      <List response={filterContacts(searchValue)} />
+      <List response={filteringContacts(searchValue)} />
     </div>
   );
 }

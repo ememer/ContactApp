@@ -3,6 +3,8 @@ import { useState } from "react";
 const Search = (props) => {
   const [inputValue, setInputValue] = useState("");
 
+  // Getting value from user via input
+
   const handleUpdateInput = (e) => {
     setInputValue(e.target.value);
     props.searchValue(e.target.value);
